@@ -6,7 +6,9 @@
         <link rel="icon" type="image/png" href="/images/logo.png">
         
         <!-- import stylesheets -->                
-        <link rel="stylesheet" href="/scss/login_register.css">
+        <link rel="stylesheet" href="/scss/login_register.css" type="text/css">
+
+    
 
         <!-- import fonts --> 
         <link rel="preconnect" href="https://fonts.gstatic.com">
