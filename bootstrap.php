@@ -1,33 +1,32 @@
 <?php
 
-$routes = require('routes.php');
-$config = require('config.php');
-
-
-// Configure the autoloader
 spl_autoload_register(function($class_name) {
     $class_name = str_replace('\\', '/', $class_name);
-    require($class_name. '.php'); 
+    require($class_name.'.php');
 });
 
+$routes = require('routes.php');
+
 $matched = false;
-foreach ($routes as $pattern => $action) {
-    if (preg_match("#$pattern#", $_SERVER['REQUEST_URI'], $matches) === 1) {
+$key;
+foreach($routes as $pattern => $action) {
+    if ("{$pattern}" == $_SERVER['REQUEST_URI']){
         $matched = true;
+        $key = "{$pattern}";
         break;
     }
 }
-
-if (!$matched) {
+if (!$matched) { 
     http_response_code(404);
     exit;
 }
 
-list($class, $method) = explode('@', $action );
+list($class, $method) = explode('@', $routes[$key]);
 
 $controller = new $class();
-call_user_func_array([$controller, $method], array_slice($matches, 1));
 
-function render($view, $data) {
+function render($view) {
     require("Views/$view.php");
 }
+
+$controller->$method();
