@@ -37,27 +37,26 @@ input:invalid {
   padding: 0 2rem;
 }
 
-.login-img {
+.left-img {
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
 
-.login-img img {
+.left-img img {
   width: 600px;
 }
 
 /* FORM */
-.login {
+.user-section {
   display: flex;
   justify-content: space-around;
   align-items: center;
   text-align: center;
 }
 
-.login form img {
+.user-section form img {
   width: 100px;
-  margin-bottom: 40px;
 }
 
 form {
@@ -73,7 +72,7 @@ form {
   border-bottom: 2px solid #B4BCC4;
 }
 
-.login form .error {
+.user-section form .error {
   border-bottom-color: #e71d36;
 }
 
@@ -145,21 +144,6 @@ form {
   color: #011627;
 }
 
-/* FORGET PASSWORD */
-a {
-  display: block;
-  text-align: right;
-  text-decoration: none;
-  color: #B4BCC4;
-  font-size: 0.9rem;
-  transition: 0.3s;
-}
-
-a:hover {
-  color: #2EC4B6;
-  text-decoration: none;
-}
-
 /* SUBMIT BUTTON */
 .btn {
   display: block;
@@ -191,12 +175,12 @@ a:hover {
     width: 290px;
   }
 
-  .login-img img {
+  .left-img img {
     width: 400px;
   }
 }
 @media screen and (max-width: 900px) {
-  .login-img {
+  .left-img {
     display: none;
   }
 
@@ -208,9 +192,38 @@ a:hover {
     display: none;
   }
 
-  .login {
+  .user-section {
     justify-content: center;
   }
+}
+/* FORGET PASSWORD */
+a {
+  display: block;
+  text-align: right;
+  text-decoration: none;
+  color: #B4BCC4;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+a:hover {
+  color: #2EC4B6;
+  text-decoration: none;
+}
+
+.register-redirection {
+  display: block;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #B4BCC4;
+}
+
+.register-redirection a {
+  display: inline;
+}
+
+.user-section form img.login-img {
+  margin-bottom: 40px;
 }
 
 /*# sourceMappingURL=login_register.css.map */
