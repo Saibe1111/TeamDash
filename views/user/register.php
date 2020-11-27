@@ -23,14 +23,37 @@
         <!-- background components -->
         <img id="wave" src="/images/wave.png">
         <div class="container">             
-            <div class="login-img">
-                <img id="img" class="float-left" src="/images/login_img.svg">
+            <div class="left-img">
+                <img id="img" class="float-left" src="/images/register_img.svg">
             </div>
             <!-- register form -->
-            <div class="login">
-                <form action="viewRegister.php">
+            <div class="user-section">
+                <form action="register.php">
                     <!-- form header -->                   
                    <img src="/images/male_avatar.svg">
+
+                    <!-- name input -->   
+                    <div class="input-section first">
+                        <div class="icon">
+                            <i class="fa fa-user" ></i> 
+                        </div>
+                        <div>
+                            <h5> Name </h5>
+                            <input class="input" type="text" required>
+                        </div>
+                    </div>
+                        
+                    <!-- username input -->
+                    <div class="input-section first">
+                        <div class="icon">
+                            <i class="fa fa-user" ></i> 
+                        </div>
+                        <div>
+                            <h5> Username </h5>
+                            <input class="input" type="text" required>
+                        </div>
+                    </div>
+
                     <!-- mail input -->
                     <div class="input-section first">
                         <div class="icon">
@@ -38,41 +61,12 @@
                         </div>
                         <div>
                             <h5> Email </h5>
-                            <input class="input" type="email" autofocus required>
+                            <input class="input" type="email" required>
                         </div>
                     </div>
-                    <!-- first name input -->
-                    <div class="input-section second">
-                        <div class="icon">
-                            <i class="fa fa-user" ></i> 
-                        </div>
-                        <div>
-                            <h5> First Name </h5>
-                            <input class="input" type="fname" autofocus required>
-                        </div>
-                    </div>
-                    <!-- last name input -->
-                    <div class="input-section third">
-                        <div class="icon">
-                            <i class="fa fa-user" ></i> 
-                        </div>
-                        <div>
-                            <h5> Last Name </h5>
-                            <input class="input" type="lname" autofocus required>
-                        </div>
-                    </div>
-                    <!-- username input -->
-                    <div class="input-section fourth">
-                        <div class="icon">
-                            <i class="fa fa-user" ></i> 
-                        </div>
-                        <div>
-                            <h5> Username </h5>
-                            <input class="input" type="uname" autofocus required>
-                        </div>
-                    </div>
+
                     <!-- password input --> 
-                    <div class="input-section fifth">
+                    <div class="input-section first">
                         <div class="icon">
                             <i class="fa fa-lock"></i>
                         </div>
@@ -81,16 +75,7 @@
                             <input class="input" type="password" required>
                         </div>       
                     </div>
-                    <!-- confirm password input --> 
-                    <div class="input-section sixth">
-                        <div class="icon">
-                            <i class="fa fa-lock"></i>
-                        </div>
-                        <div>
-                            <h5> Confirm Password </h5>
-                            <input class="input" type="cpassword" required>
-                        </div>       
-                    </div>
+
                     <!-- form footer -->
                     <input type="submit" class="btn" value="Register"> 
                  </form>
