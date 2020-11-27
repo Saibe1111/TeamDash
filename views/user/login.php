@@ -7,7 +7,6 @@
         
         <!-- import stylesheets -->                
         <link rel="stylesheet" href="/scss/login_register.css" type="text/css">
-
     
 
         <!-- import fonts --> 
@@ -25,14 +24,14 @@
         <!-- background components -->
         <img id="wave" src="/images/wave.png">
         <div class="container">             
-            <div class="login-img">
+            <div class="left-img">
                 <img id="img" class="float-left" src="/images/login_img.svg">
             </div>
             <!-- login form -->
-            <div class="login">
-                <form action="viewLogin.php">
+            <div class="user-section">
+                <form action="login.php">
                     <!-- form header -->                   
-                    <img src="/images/male_avatar.svg">
+                    <img class="login-img" src="/images/male_avatar.svg">
                     <!-- mail input -->
                     <div class="input-section first">
                         <div class="icon">
@@ -54,8 +53,9 @@
                         </div>       
                     </div>
                     <!-- form footer -->
-                    <a href="register"> Forgot Password ? </a>
-                    <input type="submit" class="btn" value="Login"> 
+                    <a href="#"> Forgot Password ? </a>
+                    <input type="submit" class="btn" value="Login">  
+                    <p class="register-redirection"> Don't have an account ? <a href="register">Sign Up</a>  </p>
                  </form>
             </div>
         </div>      
