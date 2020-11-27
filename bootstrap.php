@@ -7,6 +7,10 @@ spl_autoload_register(function($class_name) {
 
 $routes = require('routes.php');
 
+$config = require('config.php');
+
+$db = new \PDO("sqlite:{$config['database']['path']}");
+
 $matched = false;
 $key;
 foreach($routes as $pattern => $action) {
