@@ -1,36 +1,31 @@
 <?php
 
-spl_autoload_register(function($class_name) {
-    $class_name = str_replace('\\', '/', $class_name);
-    require($class_name.'.php');
-});
+//On prend les paramètres de l'url 
+$params = explode('/', $_SERVER[REQUEST_URI]);
 
-$routes = require('routes.php');
+require_once('class/Controller.php');
+require_once('class/Model.php');
 
-$config = require('config.php');
+//On regarde si il y a un paramète
+if( ($params[1] != "")  ){
+    $controller = ucfirst($params[1]);
+    $action = isset($params[2]) ? $params[2] : 'index';
+    require_once('controllers/'.$controller.'.php');
+    
+    $controller = new $controller();
+   
+    if(method_exists($controller,$action)){
 
-$db = new \PDO("sqlite:{$config['database']['path']}");
+        unset($params[0]);
+        unset($params[1]);
+        unset($params[2]);
+        call_user_func_array([$controller, $action], $params);
 
-$matched = false;
-$key;
-foreach($routes as $pattern => $action) {
-    if ("{$pattern}" == $_SERVER['REQUEST_URI']){
-        $matched = true;
-        $key = "{$pattern}";
-        break;
+    }else{
+        http_response_code(404);
+        echo "La page existe pas :/";
     }
-}
-if (!$matched) { 
+}else{
     http_response_code(404);
-    exit;
+    echo "La page existe pas :/";
 }
-
-list($class, $method) = explode('@', $routes[$key]);
-
-$controller = new $class();
-
-function render($view) {
-    require("Views/$view.php");
-}
-
-$controller->$method();
