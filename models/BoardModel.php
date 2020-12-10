@@ -17,6 +17,7 @@ class BoardModel extends Model{
 
 
      public function getTask(int $id){
+         
         $statement = $this->_connectDB->prepare('SELECT * FROM TASK where FK_Task_project=:id');
         $statement->bindValue(':id', $id);
         $res = $statement->execute();
@@ -43,14 +44,25 @@ class BoardModel extends Model{
         $req->execute();
      }
 
+     public function addTask(string $task, string $id_project){
+        $req = $this->_connectDB->prepare('INSERT INTO TASK VALUES (:id, :task, :id_project)');
+        $req->bindValue(':task', $task);
+        $req->bindValue(':id_project', $id_project);
+        $req->execute();
+     }
+
      public function removeProject(int $id_user, string $id_project){
-        var_dump($id_user);
-        var_dump($id_project);
         $req = $this->_connectDB->prepare('DELETE FROM PROJECT WHERE FK_Project_owner=:id_user AND PK_Project_id=:id_project');
         $req->bindValue(':id_project', $id_project);
         $req->bindValue(':id_user', $id_user);
         $req->execute();
      }
+
+     public function removeTask(string $id_task){
+      $req = $this->_connectDB->prepare('DELETE FROM TASK WHERE PK_Task_id=:id_task');
+      $req->bindValue(':id_task', $id_task);
+      $req->execute();
+   }
 
 
 }

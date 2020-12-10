@@ -25,7 +25,13 @@ class Board extends Controller{
         $info['Name'] = $Name;
         $info['id'] = $id;
         $info['Tasks'] = $Tasks;
+        
         $this->render('task', ['test' => $info]);
+
+        if($_POST['task'] !== '' and  isset($_SESSION['id'])  ){
+            $this->BoardModel->addTask($_POST['task'],$id);
+            header("Refresh:0");
+         }
     }
 
     public function delete_project($id){
@@ -35,5 +41,15 @@ class Board extends Controller{
         header('Location: /board');
         exit();
     }
+
+    public function delete_task($id){
+        session_start();
+        $this->loadModel("BoardModel");
+        $this->BoardModel->removeTask($id);
+        header('Location: /board');
+        exit();
+    }
+
+    
 
 }
