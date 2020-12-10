@@ -5,7 +5,7 @@
 * Marwan MEZROUI
 * Manil RICHARD
 
-## Installation
+## Installation - LINUX
 
 ```bash
 apt-get update && apt-get upgrade
@@ -13,7 +13,7 @@ apt-get install php
 apt-get install php-sqlite3
 ```
 
-## Launch
+## Launch - LINUX
 
 ```
 php -S {IP}:{PORT} -t public/
