@@ -4,3 +4,5 @@
         <h3 ><?= $t["Task_name"] ?></h3>
         <a></a>
     <?php endforeach; ?>
+
+<a href="/board/delete_project/<?= $test['id']?>">Supprimer le projet</a>

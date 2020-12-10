@@ -1,7 +1,7 @@
 <header>
     <link rel="stylesheet" href="/css/default.css">
     <div class="topnav">
-        <a class="active" href="#home">TeamDash</a>
+        <a class="active">TeamDash</a>
         <a href="/Board">Board</a>
         <div class="topnav-right">
             <a href="/authentication/register">Register</a>

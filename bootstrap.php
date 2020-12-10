@@ -26,6 +26,6 @@ if( ($params[1] != "")  ){
         echo "La page existe pas :/";
     }
 }else{
-    http_response_code(404);
-    echo "La page existe pas :/";
+    header('Location: /authentication/login');
+    exit();
 }
