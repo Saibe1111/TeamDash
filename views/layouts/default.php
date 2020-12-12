@@ -2,7 +2,6 @@
     <link rel="stylesheet" href="/css/default.css">
     <div class="topnav">
         <a class="active">TeamDash</a>
-        <a href="/Board">Board</a>
         <div class="topnav-right">
             <a href="/authentication/register">Register</a>
             <a href="/authentication/login">Login</a>

@@ -8,7 +8,8 @@
 </form>
 
     <?php foreach($test['Tasks'] as $t): ?>
-        <a href="/board/delete_task/<?= $t["PK_Task_id"] ?>"><?= $t["Task_name"] ?></a>
+        <a><?= $t["Task_name"] ?></a>
+        <a href="/board/delete_task/<?= $t["PK_Task_id"] ?>/<?= $test['id']?>">Supprimer</a>
         <br>
         <br>
     <?php endforeach; ?>

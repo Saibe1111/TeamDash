@@ -2,8 +2,8 @@
 class Authentication extends Controller{
     
     public function index(){
-        $this->loadModel("AuthenticationModel");
-        $this->render('index', ['test' => $projectForUser]);
+        header('Location: /authentication/login');
+        exit();
     }
 
     public function login(){
@@ -15,11 +15,11 @@ class Authentication extends Controller{
             $res =$this->AuthenticationModel->getpassword($_POST['username']);
             if (password_verify($_POST['password'], $res['User_password'])) {
                 echo 'CONNECTED';
-                $_SESSION['id'] = 1;
+                $_SESSION['user']['id'] = 1;
                 header('Location: /board');
                 exit();
             } else {
-                echo 'WRONG PASSWORD';
+                echo 'WRONG USERNAME OR PASSWORD';
             }
         }
     }
@@ -36,7 +36,7 @@ class Authentication extends Controller{
 
     public function logout(){
         session_start();
-        unset($_SESSION['id']);
+        unset($_SESSION['user']['id']);
         header('Location: /authentication/login');
         exit();
     }
