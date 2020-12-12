@@ -35,11 +35,11 @@ class BoardModel extends Model{
         return $res->fetchArray();
      }
 
-     public function addProject(string $project_name, string $project_desc, int $id){
+     public function addProject(array $project, int $id){
         $req = $this->_connectDB->prepare('INSERT INTO PROJECT VALUES (:id,:project_name,:id_user,:project_desc)');
-        $req->bindValue(':project_name', $project_name);
+        $req->bindValue(':project_name', $project['name']);
         $req->bindValue(':id_user', $id);
-        $req->bindValue(':project_desc', $project_desc);
+        $req->bindValue(':project_desc', $project['description']);
         $req->execute();
      }
 

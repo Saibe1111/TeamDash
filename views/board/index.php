@@ -4,20 +4,20 @@
 <div  class="item">
     <h1>Ajouter un projet</h1>
     <form method="POST">
-        <label for="name">Nom du projet:</label>
+        <label for="name" required>Nom du projet:</label>
         <input type="text" name="project_name">
         <br>
-        <label for="name">Description:</label>
+        <label for="name" required>Description:</label>
         <input type="text" name="project_desc">
         <br>
         <input type="submit">
     </form>
 </div>
-<?php foreach($test as $t): ?>
-    <a class="item" href="/board/tasks/<?= $t['PK_Project_id'] ?>">
+<?php foreach($projectsForUser as $project): ?>
+    <a class="item" href="/board/tasks/<?= $project['PK_Project_id'] ?>">
         <ul>
-            <li class="title"><?= $t["Project_name"] ?></li>
-            <li class="desc"><?= $t["Project_desc"] ?></li>
+            <li class="title"><?= $project["Project_name"] ?></li>
+            <li class="desc"><?= $project["Project_desc"] ?></li>
             
         </ul>
     </a>
