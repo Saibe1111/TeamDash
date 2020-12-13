@@ -24,16 +24,29 @@
 
 <main>
     <div class="error">
-        <?php if (isset($_SESSION['ERROR'])): ?>
-            <?php foreach($_SESSION['ERROR'] as $e): ?>
+        <?php if (isset($_SESSION['Flash']['ERROR'])): ?>
+            <?php foreach($_SESSION['Flash']['ERROR'] as $e): ?>
                 <a><?= $e ?></a>
                 <br>
             <?php endforeach; 
-            unset($_SESSION['ERROR']);
+            unset($_SESSION['Flash']['ERROR']);
             ?>
         <?php endif ?>
     </div>
+
+    <div class="success">
+        <?php if (isset($_SESSION['Flash']['SUCCESS'])): ?>
+            <?php foreach($_SESSION['Flash']['SUCCESS'] as $s): ?>
+                <a><?= $s ?></a>
+                <br>
+            <?php endforeach; 
+            unset($_SESSION['Flash']['SUCCESS']);
+            ?>
+        <?php endif ?>
+    </div>
+
     <?= $content ?>
+    
 </main>
 
 <footer> 

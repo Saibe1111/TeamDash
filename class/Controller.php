@@ -16,7 +16,6 @@ abstract class Controller{
 
         require_once('../views/layouts/default.php');
         
-       
     }
 
 }

@@ -39,3 +39,7 @@ body {
 .error a{
   background-color: #f0380a;
 }
+
+.success a{
+  background-color: #0af057;
+}

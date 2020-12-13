@@ -12,5 +12,10 @@ class ProfilModel extends Model{
         return $res->fetchArray();
     }
 
+    public function removeUser(int $id){
+        $req = $this->_connectDB->prepare('DELETE FROM USER WHERE PK_User_id=:id');
+        $req->bindValue(':id', $id);
+        $req->execute();
+    }
 
 }

@@ -108,7 +108,7 @@ function EmptyCheck(array $array, string $empty){
     //Check Empty
     foreach ($array as $key => $value) {
         if($value == NULL){
-            $_SESSION['ERROR'][] = 'Empty '. $empty. ' ' . $key;
+            $_SESSION['Flash']['ERROR'][] = 'Empty '. $empty. ' ' . $key;
             $check = false;
         }
     }
