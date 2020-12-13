@@ -2,23 +2,10 @@
     <link rel="stylesheet" href="/css/default.css">
     <div class="topnav">
         <a class="active">TeamDash</a>
-        <?php if(isset($_SESSION['user']['id'])): ?>
-
-            <a href="/board">Board</a>
-            <a href="/profil">Profil</a>
-            <div class="topnav-right">
-                <a href="/authentication/logout">Logout</a>
-            </div>
-            
-        <?php else: ?>
-
-            <div class="topnav-right">
-                <a href="/authentication/register">Register</a>
-                <a href="/authentication/login">Login</a>
-            </div>
-
-        <?php endif ?>
-        
+        <div class="topnav-right">
+            <a href="/authentication/register">Register</a>
+            <a href="/authentication/login">Login</a>
+        </div>
     </div>
 </header>
 
@@ -40,4 +27,3 @@
 <hr>
     <p>Teamdash - &copy;2020</p>
 </footer>
-
