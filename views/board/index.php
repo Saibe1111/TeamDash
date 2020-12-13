@@ -1,16 +1,16 @@
 <link rel="stylesheet" href="/css/board/index.css">
-<h1 class="item item-title">Mes projets</h1>
+<h1 class="item item-title">My projects</h1>
 
 <div  class="item">
-    <h1>Ajouter un projet</h1>
+    <h1>Add a project</h1>
     <form method="POST">
-        <label for="name" required>Nom du projet:</label>
+        <label for="name" required>Project name:</label>
         <input type="text" name="project_name">
         <br>
-        <label for="name" required>Description:</label>
+        <label for="name" required>Project description:</label>
         <input type="text" name="project_desc">
         <br>
-        <input type="submit">
+        <input type="submit" >
     </form>
 </div>
 <?php foreach($projectsForUser as $project): ?>

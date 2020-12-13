@@ -10,10 +10,19 @@
 </header>
 
 <main>
+    <div class="error">
+        <?php foreach($_SESSION['ERROR'] as $e): ?>
+            <a><?= $e ?></a>
+            <br>
+        <?php endforeach; 
+        unset($_SESSION['ERROR']);
+        ?>
+    </div>
+
     <?= $content ?>
 </main>
 
 <footer> 
 <hr>
-    <p>&copy;2020</p>
+    <p>Teamdash - &copy;2020</p>
 </footer>

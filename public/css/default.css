@@ -35,3 +35,7 @@ body {
 .topnav-right {
   float: right;
 }
+
+.error a{
+  background-color: #f0380a;
+}
