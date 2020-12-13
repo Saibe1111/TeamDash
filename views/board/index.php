@@ -14,7 +14,7 @@
     </form>
 </div>
 <?php foreach($projectsForUser as $project): ?>
-    <a class="item" href="/board/tasks/<?= $project['PK_Project_id'] ?>">
+    <a class="item item-select" href="/board/tasks/<?= $project['PK_Project_id'] ?>">
         <ul>
             <li class="title"><?= $project["Project_name"] ?></li>
             <li class="desc"><?= $project["Project_desc"] ?></li>
