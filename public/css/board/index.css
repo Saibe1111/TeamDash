@@ -1,0 +1,37 @@
+
+.item {
+    margin-left: 5%;
+    margin-right: 5%;
+    padding:  20px 300px;
+    margin-bottom: 20px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50px;
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+
+.item-title {
+    background-color: #28afee;
+    font-size: 50px;
+}
+
+
+.item-select:hover{
+    background-color:  #1f82af;
+    color: rgb(255, 255, 255);
+}
+
+ul {
+    list-style-type: none;
+}
+
+.desc {
+    font-size: 20px;
+}
+
+.title {
+    font-size: 30px;
+    font-weight: bold;
+}

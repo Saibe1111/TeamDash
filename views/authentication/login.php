@@ -29,7 +29,7 @@
             </div>
             <!-- login form -->
             <div class="user-section">
-                <form action="login.php">
+                <form method="post">
                     <!-- form header -->                   
                     <img class="login-img" src="/images/male_avatar.svg">
                     <!-- mail input -->
@@ -39,7 +39,7 @@
                         </div>
                         <div>
                             <h5> Email </h5>
-                            <input class="input" type="email" required>
+                            <input name="mail" class="input" type="email" required>
                         </div>
                     </div>
                     <!-- password input --> 
@@ -49,7 +49,7 @@
                         </div>
                         <div>
                             <h5> Password </h5>
-                            <input class="input" type="password" required>
+                            <input name="password" class="input" type="password" required>
                         </div>       
                     </div>
                     <!-- form footer -->

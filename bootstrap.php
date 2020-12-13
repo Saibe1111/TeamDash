@@ -11,11 +11,6 @@ spl_autoload_register(function($class_name) {
     require($class_name.'.php');
 });
 
-
-
-// $config = require('layout/config.php');
-
-// $db = new PDO("sqlite:{$config['database']['path']}");
 $routes = require('layout/routes.php');
 $matched = false;
 $key = NULL;

@@ -9,14 +9,15 @@ document.addEventListener('invalid', (function() {
     return function(e) {
         e.preventDefault();
         let inputs = document.querySelectorAll('.input');
+        let mail_format = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
         let parent;
         let icon;
-
+        
         for (let i = 0; i < inputs.length; ++i) {
             parent = getParent(inputs[i]);
             icon = getIcon(parent);
 
-            if (inputs[i].value == "") { 
+            if (inputs[i].value == "" || !inputs[0].value.match(mail_format)) { 
                 error(parent, icon);
                 break;
             } else {
@@ -28,7 +29,7 @@ document.addEventListener('invalid', (function() {
 
 /**
  * Add the class error for the input line and icon of an invalid input.
- * @param: parent | input-section first or second
+ * @param: parent - input-section first or second
  * @param: icon
  **/
 function error(parent, icon) {
@@ -38,7 +39,7 @@ function error(parent, icon) {
 
 /**
  * Remove the class 'error' for the input line and icon of a valid input.
- * @param: parent | input-section first or second
+ * @param: parent - input-section first or second
  * @param: icon
  **/
 function no_error(parent, icon) {
@@ -48,7 +49,7 @@ function no_error(parent, icon) {
 
 /**
  * Get the parent of the invalid input.
- * @param element | invalid input
+ * @param element - invalid input
  * @return parent
  **/
 function getParent(element) {
@@ -57,7 +58,7 @@ function getParent(element) {
 
 /**
  * Get the icon of the invalid input.
- * @param parent | parent of the invalid input
+ * @param parent - parent of the invalid input
  * @return icon
  * */
 function getIcon(parent) {
