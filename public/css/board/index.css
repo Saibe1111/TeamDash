@@ -17,6 +17,32 @@
     font-size: 50px;
 }
 
+.item-task a{
+    text-decoration: none;
+    border-radius:32px;
+    width:100px;
+    text-align:left;
+    padding:8px 16px;
+    display:inline-block;
+    background-color: red;
+    text-align: center;
+    color: black;
+}
+
+.item-task a:hover{
+    background-color: black;
+    color: white;
+}
+
+.delete-project {
+    background-color: red;
+}
+
+.delete-project:hover {
+    background-color: black;
+    color: white;
+}
+
 
 .item-select:hover{
     background-color:  #1f82af;

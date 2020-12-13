@@ -38,8 +38,28 @@ body {
 
 .error a{
   background-color: #f0380a;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 5px;
+  height: 20px;
+  margin-bottom: 0px;
+  border-radius: 40px;
+  text-align: center;
+  display: block;
+  text-decoration: none;
+  color: black;
 }
 
 .success a{
   background-color: #0af057;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 5px;
+  height: 20px;
+  margin-bottom: 0px;
+  border-radius: 40px;
+  text-align: center;
+  display: block;
+  text-decoration: none;
+  color: black;
 }

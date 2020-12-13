@@ -18,7 +18,7 @@ class Profil extends Controller{
             $this->ProfilModel->removeUser(intval($id));
             unset($_SESSION['user']);
         }
-        
+        $_SESSION['Flash']['SUCCESS'][] = 'Your account has been removed';
 
         header('Location: /authentication/register');
         exit();

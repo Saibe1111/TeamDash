@@ -1,5 +1,6 @@
 <header>
     <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" href="/css/board/index.css">
     <div class="topnav">
         <a class="active">TeamDash</a>
         <?php if(isset($_SESSION['user']['id'])): ?>
@@ -27,7 +28,6 @@
         <?php if (isset($_SESSION['Flash']['ERROR'])): ?>
             <?php foreach($_SESSION['Flash']['ERROR'] as $e): ?>
                 <a><?= $e ?></a>
-                <br>
             <?php endforeach; 
             unset($_SESSION['Flash']['ERROR']);
             ?>
@@ -38,7 +38,6 @@
         <?php if (isset($_SESSION['Flash']['SUCCESS'])): ?>
             <?php foreach($_SESSION['Flash']['SUCCESS'] as $s): ?>
                 <a><?= $s ?></a>
-                <br>
             <?php endforeach; 
             unset($_SESSION['Flash']['SUCCESS']);
             ?>
