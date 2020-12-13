@@ -32,15 +32,14 @@ class BoardModel extends Model{
         $statement = $this->_connectDB->prepare('SELECT Project_name FROM PROJECT where PK_Project_id=:id');
         $statement->bindValue(':id', $id);
         $res = $statement->execute();
-        
         return $res->fetchArray();
      }
 
-     public function addProject(string $project_name, string $project_desc, int $id){
+     public function addProject(array $project, int $id){
         $req = $this->_connectDB->prepare('INSERT INTO PROJECT VALUES (:id,:project_name,:id_user,:project_desc)');
-        $req->bindValue(':project_name', $project_name);
+        $req->bindValue(':project_name', $project['name']);
         $req->bindValue(':id_user', $id);
-        $req->bindValue(':project_desc', $project_desc);
+        $req->bindValue(':project_desc', $project['description']);
         $req->execute();
      }
 
@@ -58,9 +57,10 @@ class BoardModel extends Model{
         $req->execute();
      }
 
-     public function removeTask(string $id_task){
-      $req = $this->_connectDB->prepare('DELETE FROM TASK WHERE PK_Task_id=:id_task');
+     public function removeTask(string $id_task, string $id_user){
+      $req = $this->_connectDB->prepare('DELETE FROM TASK WHERE PK_Task_id=:id_task AND FK_Task_project IN (Select PK_Project_id FROM PROJECT WHERE FK_Project_owner=:id_user)');
       $req->bindValue(':id_task', $id_task);
+      $req->bindValue(':id_user', $id_user);
       $req->execute();
    }
 

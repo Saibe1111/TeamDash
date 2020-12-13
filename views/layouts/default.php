@@ -2,7 +2,6 @@
     <link rel="stylesheet" href="/css/default.css">
     <div class="topnav">
         <a class="active">TeamDash</a>
-        <a href="/Board">Board</a>
         <div class="topnav-right">
             <a href="/authentication/register">Register</a>
             <a href="/authentication/login">Login</a>
@@ -11,10 +10,20 @@
 </header>
 
 <main>
+    <div class="error">
+        <?php if (isset($_SESSION['ERROR'])): ?>
+            <?php foreach($_SESSION['ERROR'] as $e): ?>
+                <a><?= $e ?></a>
+                <br>
+            <?php endforeach; 
+            unset($_SESSION['ERROR']);
+            ?>
+        <?php endif ?>
+    </div>
     <?= $content ?>
 </main>
 
 <footer> 
 <hr>
-    <p>&copy;2020</p>
+    <p>Teamdash - &copy;2020</p>
 </footer>

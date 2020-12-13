@@ -1,12 +1,18 @@
 <?php
 
-//On prend les paramètres de l'url 
+//We take the parameters of the url 
 $params = explode('/', $_SERVER[REQUEST_URI]);
+
+//Autoreload
+spl_autoload_register(function ($class_name) {
+    $class_name = str_replace('\\', '/', $class_name);
+    require($class_name.'.php');
+});
 
 require_once('class/Controller.php');
 require_once('class/Model.php');
 
-//On regarde si il y a un paramète
+//We see if there is a parameter
 if( ($params[1] != "")  ){
     $controller = ucfirst($params[1]);
     $action = isset($params[2]) ? $params[2] : 'index';
