@@ -14,12 +14,8 @@ abstract class Controller{
 
         $content = ob_get_clean();
 
-        if(isset($_SESSION['user']['id'])){
-            require_once('../views/layouts/default_logout.php');
-        }else{
-            require_once('../views/layouts/default.php');
-        }
-       
+        require_once('../views/layouts/default.php');
+        
     }
 
 }

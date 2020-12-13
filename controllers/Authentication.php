@@ -25,10 +25,11 @@ class Authentication extends Controller{
                 $res =$this->AuthenticationModel->getpassword($user['username']);
                 if (password_verify($user['password'], $res['User_password'])) {
                     $_SESSION['user']['id'] = $this->AuthenticationModel->getId($user['username'])["PK_User_id"]; 
+                    $_SESSION['Flash']['SUCCESS'][] = 'You are logged in';
                     header('Location: /board');
                     exit();
                 }else{
-                    $_SESSION['ERROR'][] = 'Invalid password';
+                    $_SESSION['Flash']['ERROR'][] = 'Invalid password';
                 }
             }
 
@@ -62,8 +63,14 @@ class Authentication extends Controller{
             if(registerCheck($user, $this->AuthenticationModel)){
                 //Generation of an unreadable password 
                 $user['hash'] = password_hash($user['password'], PASSWORD_BCRYPT, ['cost' => 12]);
+                
                 //Send data to the model
                 $this->AuthenticationModel->adduser($user);
+
+                $_SESSION['Flash']['SUCCESS'][] = 'Your account has been created';
+
+                header('Location: /authentication/login');
+                exit();
             }
 
         }
@@ -74,7 +81,7 @@ class Authentication extends Controller{
 
     public function logout(){
         session_start();
-        unset($_SESSION['user']['id']);
+        unset($_SESSION['user']);
         header('Location: /authentication/login');
         exit();
     }
@@ -89,28 +96,28 @@ function registerCheck(array $user, $model){
     //Check Empty
     foreach ($user as $key => $value) {
         if($value == NULL){
-            $_SESSION['ERROR'][] = 'Invalid ' . $key;
+            $_SESSION['Flash']['ERROR'][] = 'Invalid ' . $key;
             $check = false;
         }
     }
 
     //Verify password
     if($user['password'] !== $user['verify password']){
-        $_SESSION['ERROR'][] = 'Invalid verify password';
+        $_SESSION['Flash']['ERROR'][] = 'Invalid verify password';
         $check = false;
     }
 
     //Check if the username is already in use
     $usernameIsUse = $model->usernameIsUse($user['username']);
     if( $usernameIsUse["COUNT(PK_User_id)"] > 0){
-        $_SESSION['ERROR'][] = 'Username already used';
+        $_SESSION['Flash']['ERROR'][] = 'Username already used';
         $check = false;
     }
 
     //Check if the email is already in use
     $mailIsUse = $model->mailIsUse($user['email']);
     if( $usernameIsUse["COUNT(PK_User_id)"] > 0){
-        $_SESSION['ERROR'][] = 'Email already used';
+        $_SESSION['Flash']['ERROR'][] = 'Email already used';
         $check = false;
     }
 
@@ -125,7 +132,7 @@ function loginCheck(array $user){
     //Check Empty
     foreach ($user as $key => $value) {
         if($value == NULL){
-            $_SESSION['ERROR'][] = 'Invalid ' . $key;
+            $_SESSION['Flash']['ERROR'][] = 'Invalid ' . $key;
             $check = false;
         }
     }

@@ -14,3 +14,6 @@
 <a><?= $userInfo["User_mail"] ?></a>
 <a href="">Modifier</a>
 <br><br>
+
+<a href="/profil/delete_user/<?= $userInfo['PK_User_id']?>">Delete my account</a>
+<br><br>
