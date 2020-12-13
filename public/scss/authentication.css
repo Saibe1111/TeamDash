@@ -90,7 +90,7 @@ form {
 }
 
 .input-section.focus {
-  border-bottom-color: #2EC4B6;
+  border-bottom-color: #bedcfa;
 }
 
 /* AVATAR */
@@ -109,7 +109,7 @@ form {
 }
 
 .input-section.focus .icon i {
-  color: #2EC4B6;
+  color: #bedcfa;
 }
 
 /* INPUT TEXT */
@@ -154,7 +154,7 @@ form {
   font-size: 1.2rem;
   outline: none;
   border: none;
-  background-color: #2EC4B6;
+  background-color: #bedcfa;
   color: #FDFFFC;
   cursor: pointer;
   font-family: "Poppins", sans-serif;
@@ -207,7 +207,7 @@ a {
 }
 
 a:hover {
-  color: #2EC4B6;
+  color: #bedcfa;
   text-decoration: none;
 }
 
@@ -226,4 +226,4 @@ a:hover {
   margin-bottom: 40px;
 }
 
-/*# sourceMappingURL=login_register.css.map */
+/*# sourceMappingURL=authentication.css.map */

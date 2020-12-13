@@ -1,18 +1,24 @@
 <?php
+$folder_path = 'util/';
+foreach (new DirectoryIterator($folder_path) as $file) {
+    if ($file->isDot()) continue;
+    $file_name = $folder_path.$file->getFilename();
+    require_once $file_name;
+}
 
 spl_autoload_register(function($class_name) {
     $class_name = str_replace('\\', '/', $class_name);
     require($class_name.'.php');
 });
 
-$routes = require('routes.php');
 
-$config = require('config.php');
 
-$db = new \PDO("sqlite:{$config['database']['path']}");
+// $config = require('layout/config.php');
 
+// $db = new PDO("sqlite:{$config['database']['path']}");
+$routes = require('layout/routes.php');
 $matched = false;
-$key;
+$key = NULL;
 foreach($routes as $pattern => $action) {
     if ("{$pattern}" == $_SERVER['REQUEST_URI']){
         $matched = true;
@@ -20,17 +26,16 @@ foreach($routes as $pattern => $action) {
         break;
     }
 }
+
 if (!$matched) { 
-    http_response_code(404);
+    $key = 'error';
+    list($class, $method) = explode('@', $routes[$key]);
+    $controller = new $class();
+    $controller->$method();
     exit;
 }
 
 list($class, $method) = explode('@', $routes[$key]);
 
 $controller = new $class();
-
-function render($view) {
-    require("Views/$view.php");
-}
-
 $controller->$method();

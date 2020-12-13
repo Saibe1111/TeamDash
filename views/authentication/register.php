@@ -2,14 +2,13 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title> TeamDash - Login  </title>
+        <title> TeamDash - Register  </title>
         <link rel="icon" type="image/png" href="/images/logo.png">
         
         <!-- import stylesheets -->                
-        <link rel="stylesheet" href="/scss/login_register.css" type="text/css">
-    
+        <link rel="stylesheet" href="/scss/authentication.css">
 
-        <!-- import fonts --> 
+        <!-- import fonts -->
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet"> 
 
@@ -22,16 +21,39 @@
     </head>    
     <body>
         <!-- background components -->
-        <img id="wave" src="/images/wave.png">
+        <img id="wave" src="/images/background.png">
         <div class="container">             
             <div class="left-img">
-                <img id="img" class="float-left" src="/images/login_img.svg">
+                <img id="img" class="float-left" src="/images/register_img.svg">
             </div>
-            <!-- login form -->
+            <!-- register form -->
             <div class="user-section">
-                <form action="login.php">
+                <form action="register.php">
                     <!-- form header -->                   
-                    <img class="login-img" src="/images/male_avatar.svg">
+                   <img src="/images/male_avatar.svg">
+
+                    <!-- name input -->   
+                    <div class="input-section first">
+                        <div class="icon">
+                            <i class="fa fa-user" ></i> 
+                        </div>
+                        <div>
+                            <h5> Name </h5>
+                            <input class="input" type="text" required>
+                        </div>
+                    </div>
+                        
+                    <!-- username input -->
+                    <div class="input-section first">
+                        <div class="icon">
+                            <i class="fa fa-user" ></i> 
+                        </div>
+                        <div>
+                            <h5> Username </h5>
+                            <input class="input" type="text" required>
+                        </div>
+                    </div>
+
                     <!-- mail input -->
                     <div class="input-section first">
                         <div class="icon">
@@ -42,8 +64,9 @@
                             <input class="input" type="email" required>
                         </div>
                     </div>
+
                     <!-- password input --> 
-                    <div class="input-section second">
+                    <div class="input-section first">
                         <div class="icon">
                             <i class="fa fa-lock"></i>
                         </div>
@@ -52,10 +75,9 @@
                             <input class="input" type="password" required>
                         </div>       
                     </div>
+
                     <!-- form footer -->
-                    <a href="#"> Forgot Password ? </a>
-                    <input type="submit" class="btn" value="Login">  
-                    <p class="register-redirection"> Don't have an account ? <a href="register">Sign Up</a>  </p>
+                    <input type="submit" class="btn" value="Register"> 
                  </form>
             </div>
         </div>      

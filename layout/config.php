@@ -2,6 +2,6 @@
 
 return [
 	'database' => [
-		'path' => 'dashtabase.db',
+		'path' => 'database.db',
 	],
 ];
