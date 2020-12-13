@@ -11,14 +11,15 @@
 
 <main>
     <div class="error">
-        <?php foreach($_SESSION['ERROR'] as $e): ?>
-            <a><?= $e ?></a>
-            <br>
-        <?php endforeach; 
-        unset($_SESSION['ERROR']);
-        ?>
+        <?php if (isset($_SESSION['ERROR'])): ?>
+            <?php foreach($_SESSION['ERROR'] as $e): ?>
+                <a><?= $e ?></a>
+                <br>
+            <?php endforeach; 
+            unset($_SESSION['ERROR']);
+            ?>
+        <?php endif ?>
     </div>
-
     <?= $content ?>
 </main>
 

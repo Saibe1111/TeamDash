@@ -59,7 +59,7 @@ class Authentication extends Controller{
             $user['password'] = htmlspecialchars($_POST['password1']);
             $user['verify password'] = htmlspecialchars($_POST['password2']);
 
-            if(registerCheck($user)){
+            if(registerCheck($user, $this->AuthenticationModel)){
                 //Generation of an unreadable password 
                 $user['hash'] = password_hash($user['password'], PASSWORD_BCRYPT, ['cost' => 12]);
                 //Send data to the model
@@ -82,7 +82,7 @@ class Authentication extends Controller{
 
 
 //Check 
-function registerCheck(array $user){
+function registerCheck(array $user, $model){
 
     $check = true;
 
@@ -97,6 +97,20 @@ function registerCheck(array $user){
     //Verify password
     if($user['password'] !== $user['verify password']){
         $_SESSION['ERROR'][] = 'Invalid verify password';
+        $check = false;
+    }
+
+    //Check if the username is already in use
+    $usernameIsUse = $model->usernameIsUse($user['username']);
+    if( $usernameIsUse["COUNT(PK_User_id)"] > 0){
+        $_SESSION['ERROR'][] = 'Username already used';
+        $check = false;
+    }
+
+    //Check if the email is already in use
+    $mailIsUse = $model->mailIsUse($user['email']);
+    if( $usernameIsUse["COUNT(PK_User_id)"] > 0){
+        $_SESSION['ERROR'][] = 'Email already used';
         $check = false;
     }
 

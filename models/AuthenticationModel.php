@@ -28,4 +28,18 @@ class AuthenticationModel extends Model{
         return $res->fetchArray();
     }
 
+    public function usernameIsUse(string $username){
+        $req = $this->_connectDB->prepare('SELECT COUNT(PK_User_id) FROM USER where User_Username=:username');
+        $req->bindValue(':username', $username);
+        $res = $req->execute();
+        return $res->fetchArray();
+    }
+
+    public function mailIsUse(string $mail){
+        $req = $this->_connectDB->prepare('SELECT COUNT(PK_User_id) FROM USER where User_mail=:mail');
+        $req->bindValue(':mail', $mail);
+        $res = $req->execute();
+        return $res->fetchArray();
+    }
+
 }

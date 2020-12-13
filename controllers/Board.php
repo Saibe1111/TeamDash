@@ -35,10 +35,6 @@ class Board extends Controller{
 
         $this->render('index', ['projectsForUser' => $projectsForUser]);
 
-        
-        
-        
-
     }
 
     public function tasks($id){
