@@ -1,3 +1,5 @@
+<!-- login view -->
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,7 +19,7 @@
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"> 
 
         <!-- import scripts -->
-        <script type="text/javascript" src="/js/login_focus.js"  defer></script>      
+        <script type="text/javascript" src="/js/authentication_focus.js"  defer></script>      
         <script type="text/javascript" src="/js/login_error.js"  defer></script> 
     </head>    
     <body>

@@ -1,4 +1,7 @@
 <?php
+/**
+* author: TeamDash
+**/
 
 if (preg_match('/\.(?:png|jpg|jpeg|gif|css|js|svg)$/', $_SERVER["REQUEST_URI"])) {  
    return false;

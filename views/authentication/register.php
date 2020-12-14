@@ -1,3 +1,5 @@
+<!-- register view -->
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,7 +18,7 @@
         <script src="https://use.fontawesome.com/79845f4d1d.js"></script> 
 
         <!-- import scripts -->
-        <script type="text/javascript" src="/js/login_focus.js"  defer></script>      
+        <script type="text/javascript" src="/js/authentication_focus.js"  defer></script>      
         <script type="text/javascript" src="/js/register_error.js"  defer></script> 
     </head>    
     <body>

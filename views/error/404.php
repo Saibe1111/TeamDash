@@ -1,3 +1,5 @@
+<!-- error 404 view -->
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -26,5 +28,3 @@
         </div>
     </body>
 </html>
-
-

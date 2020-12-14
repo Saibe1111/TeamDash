@@ -1,12 +1,21 @@
 <?php 
+
+/**
+* author: TeamDash
+* description: controller for the authentication (register or login)
+* see: ../util/Controller.php
+**/
+
 namespace Controllers;
 
 class Authentication extends \Controller {
 
     public function login() {
+
         $this->render('login');
 
         if(!empty($_POST)) {
+            
             $this->loadModel("LoginManagement");
 
             if(!$this->LoginManagement->exist($_POST['mail'])) {
@@ -21,14 +30,17 @@ class Authentication extends \Controller {
             } else {
                 echo '<script> alert("Error: You have entered an invalid password."); location.href="/";</script>';
             }
+
         }
         
     }
 
     public function register() {
+
         $this->render('register');
 
         if (!empty($_POST)) {
+
             $this->loadModel("RegisterManagement");
             $user_data = [];
             
@@ -42,7 +54,6 @@ class Authentication extends \Controller {
             if ($this->registerIsValid($user_data)) {
                 $user_data['password_hash'] = password_hash($user_data['password'], PASSWORD_BCRYPT, ['cost' => 12]);
                 $this->RegisterManagement->addUser($user_data);
-
                 header('Location: /');
             }
                         
@@ -51,16 +62,19 @@ class Authentication extends \Controller {
     }
 
     public function getFolder() {
+
         $folder = explode('\\', __CLASS__);
         return array_pop($folder);
+
     }
 
-    public function users() {
-        $this->loadModel("RegisterManagement");
-        $list =  $this->RegisterManagement->removeAll();
-    }
-
+    /**
+    * check if the fields of the register's form is valid 
+    * @param: $data
+    * @return: $valid 
+    */
     private function registerIsValid(array $data) {
+        
         $valid = TRUE;
         
         if ($this->RegisterManagement->usernameIsUse($data['username'])) {
@@ -79,13 +93,21 @@ class Authentication extends \Controller {
         }
 
         return $valid;
+
     }
 
     private const MIN_LENGHT = 8;
     private const UPPERCASE = '/[A-Z]/';
     private const LOWERCASE = '/[a-z]/';
     private const SPECIAL = '/[!@#$%^&*]/';
+
+    /**
+    * check if the password respect the wanted format
+    * @param: $pwd - the password
+    * @return: $valid
+    */
     private function pwdIsValid(string $pwd) {
+
         $valid = TRUE;
     
         if (strlen($pwd) < Authentication::MIN_LENGHT) {
@@ -107,4 +129,5 @@ class Authentication extends \Controller {
         return $valid;
 
     }
+
 }
