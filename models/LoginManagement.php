@@ -45,4 +45,20 @@ class LoginManagement extends Model {
 
     }
 
+    /**
+    * get the id by mail
+    * @param: $mail
+    * @return: user id
+    */
+    public function getId(string $mail) {
+
+        $stmt = $this->_connectDB->prepare('SELECT PK_User_id FROM USER where User_mail = :mail');
+        $stmt->bindValue(':mail', $mail);
+
+        $password = $stmt->execute();
+        
+        return $password->fetchArray();
+        
+    }
+
 }

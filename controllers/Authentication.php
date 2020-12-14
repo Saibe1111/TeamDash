@@ -11,6 +11,7 @@ namespace Controllers;
 class Authentication extends \Controller {
 
     public function login() {
+        session_start();
 
         $this->render('login');
 
@@ -25,6 +26,7 @@ class Authentication extends \Controller {
 
             $wanted = $this->LoginManagement->getPassword($_POST['mail']);
             if (password_verify($_POST['password'], $wanted['User_password'])) {
+                $_SESSION['user']['id'] = $this->LoginManagement->getId($_POST['mail'])['PK_User_id'];
                 header('Location: /home');
                 exit();
             } else {

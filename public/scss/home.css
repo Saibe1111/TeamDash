@@ -1,0 +1,37 @@
+/**
+* author: TeamDash
+* descritpion: stylesheet of the Home view
+* see: base/_variables, base/_globals
+**/
+/* IMPORT */
+/**
+* author: TeamDash
+* descritpion: variables for the colors
+**/
+/**
+* author: TeamDash
+* descritpion: basic stylesheets settings
+**/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+input:invalid {
+  box-shadow: none;
+}
+
+.background {
+  background-color: #bedcfa;
+}
+
+li {
+  font-size: 20px;
+}
+
+/*# sourceMappingURL=home.css.map */

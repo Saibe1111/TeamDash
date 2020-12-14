@@ -8,7 +8,6 @@
 return [
     '/' => 'controllers\Authentication@login',
     '/register' => 'controllers\Authentication@register',
-    '/home' => 'controllers\Board@home',
-    'error' => 'controllers\Error@notFound',
-    '/users' => 'controllers\Authentication@users'
+    '/home' => 'controllers\Home@home',
+    'error' => 'controllers\Error@notFound'
 ];
