@@ -16,5 +16,5 @@ apt-get install php-sqlite3
 ## Launch - LINUX
 
 ```
-php -S {IP}:{PORT} -t public/
+php -S {IP}:{PORT} -t public public/index.php
 ```
