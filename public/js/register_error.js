@@ -9,15 +9,16 @@ document.addEventListener('invalid', (function() {
     return function(e) {
         e.preventDefault();
         let inputs = document.querySelectorAll('.input');
+        let mail = document.querySelector('input[name="email"]');
         let mail_format = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
         let parent;
         let icon;
-        
+
         for (let i = 0; i < inputs.length; ++i) {
             parent = getParent(inputs[i]);
             icon = getIcon(parent);
 
-            if (inputs[i].value == "" || !inputs[0].value.match(mail_format)) { 
+            if ((inputs[i].value == "") ||  (i == 2 && !mail.value.match(mail_format))) { 
                 error(parent, icon);
                 break;
             } else {

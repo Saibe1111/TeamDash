@@ -13,11 +13,11 @@
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet"> 
 
         <!-- import icons -->
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"> 
+        <script src="https://use.fontawesome.com/79845f4d1d.js"></script> 
 
         <!-- import scripts -->
         <script type="text/javascript" src="/js/login_focus.js"  defer></script>      
-        <script type="text/javascript" src="/js/login_error.js"  defer></script> 
+        <script type="text/javascript" src="/js/register_error.js"  defer></script> 
     </head>    
     <body>
         <!-- background components -->
@@ -28,7 +28,7 @@
             </div>
             <!-- register form -->
             <div class="user-section">
-                <form action="register.php">
+                <form method="post">
                     <!-- form header -->                   
                    <img src="/images/male_avatar.svg">
 
@@ -38,30 +38,30 @@
                             <i class="fa fa-user" ></i> 
                         </div>
                         <div>
-                            <h5> Name </h5>
-                            <input class="input" type="text" required>
+                            <h5> Full Name </h5>
+                            <input name="name" class="input" type="text" required>
                         </div>
                     </div>
                         
                     <!-- username input -->
                     <div class="input-section first">
                         <div class="icon">
-                            <i class="fa fa-user" ></i> 
+                            <i class="fa fa-hashtag" ></i> 
                         </div>
                         <div>
                             <h5> Username </h5>
-                            <input class="input" type="text" required>
+                            <input name="username" class="input" type="text" required>
                         </div>
                     </div>
 
                     <!-- mail input -->
                     <div class="input-section first">
                         <div class="icon">
-                            <i class="fa fa-user" ></i> 
+                            <i class="fa fa-envelope" ></i> 
                         </div>
                         <div>
                             <h5> Email </h5>
-                            <input class="input" type="email" required>
+                            <input name="email" class="input" type="email" required>
                         </div>
                     </div>
 
@@ -72,7 +72,7 @@
                         </div>
                         <div>
                             <h5> Password </h5>
-                            <input class="input" type="password" required>
+                            <input name="password" class="input" type="password" required>
                         </div>       
                     </div>
 

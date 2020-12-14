@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php
 namespace Controllers;
 
@@ -130,4 +131,19 @@ function EmptyCheck(array $array, string $empty){
 
     return $check;
 >>>>>>> f3d074d296fafc8b50fbae53a16c865488a0c25c
+=======
+<?php
+namespace Controllers;
+
+class Board extends \Controller {
+
+    public function home() {
+        $this->render('home');
+    }
+
+    public function getFolder() {
+        return;
+    }
+    
+>>>>>>> register
 }
