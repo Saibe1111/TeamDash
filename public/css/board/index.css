@@ -59,5 +59,44 @@ ul {
 
 .title {
     font-size: 30px;
+    text-decoration: underline;
     font-weight: bold;
+}
+
+
+.form form{
+    margin-left: auto;
+    margin-right: auto;
+    width: 320px;
+    height: 230px;
+    padding-top: 50px;
+    background-color: white;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 50px;
+    font-size: 18px;
+}
+
+.formRegister form{
+    height: 540px;
+}
+
+.formTask form{
+    height: 160px;
+}
+
+
+.form input{
+    width: 100%;
+    border-radius: 50px;
+    line-height: 28px;
+    text-align: center;
+}
+
+.formButton input{
+    background-color: gray;
+}
+
+.formButton input:hover{
+    background-color: #1f82af;
 }
