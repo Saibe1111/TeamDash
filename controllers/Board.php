@@ -1,117 +1,82 @@
 <?php
-class Board extends Controller{
-    
-    public function index(){
+
+/**
+* author: TeamDash
+* description: controller for the Board
+* see: ../util/Controller.php
+**/
+
+namespace Controllers;
+
+class Board extends \Controller {
+
+    public function board() {
 
         session_start();
 
-        //check if user is login
         if(!$_SESSION['user']['id']){
-            header('Location: /authentication/login');
+            header('Location: /');
             exit();
         }
 
-        //Load model
-        $this->loadModel("BoardModel");
+        $this->loadModel("BoardManagement");
+        $project_id = substr($_SERVER['REQUEST_URI'], 7);
 
         if (!empty($_POST)){
-
-            //get values
-            $project = [];
-
-            //define
-            $project['name'] = htmlspecialchars($_POST['project_name']);
-            $project['description'] = htmlspecialchars($_POST['project_desc']);
-
-            
-            if( EmptyCheck($project, 'project') ){
-            $this->BoardModel->addProject($project,$_SESSION['user']['id']);
+            $this->BoardManagement->addTask($_POST['task'], $project_id);
             header("Refresh:0");
-            }
         }
-       
-        //get project
-        $projectsForUser = $this->BoardModel->getUserProject($_SESSION['user']['id']);
 
-        $this->render('index', ['projectsForUser' => $projectsForUser]);
+        $board_data = [];
+        $board_data['id'] = $project_id;
+        $board_data['name'] = $this->BoardManagement->getName($project_id);
+        $board_data['task'] = $this->BoardManagement->getTasks($project_id);
+
+        $this->render('board', ['board_data' => $board_data]);
 
     }
 
-    public function tasks($id){
+    public function deleteTask() {
+
         session_start();
 
-        //check if user is login
         if(!$_SESSION['user']['id']){
-            header('Location: /authentication/login');
+            header('Location: /');
             exit();
         }
 
-        //Load model
-        $this->loadModel("BoardModel");
+        $this->loadModel("BoardManagement");
 
-        if (!empty($_POST)){
-
-            //get values
-            $newTask = [];
-
-            //define
-            $newTask['name'] = htmlspecialchars($_POST['task']);
-            if(EmptyCheck($newTask,'task')){
-                $this->BoardModel->addTask($newTask['name'],$id);
-                header("Refresh:0");
-            }
-        }
-
-        $Tasks = $this->BoardModel->getTask($id);
-        $Name = $this->BoardModel->getProjectName($id);
-        $info = [];
-        $info['Name'] = $Name;
-        $info['id'] = $id;
-        $info['Tasks'] = $Tasks;
-        $this->render('task', ['test' => $info]);
-
-    }
-
-
-    //Remove project
-    public function delete_project($id){
-        session_start();
-
-        $this->loadModel("BoardModel");
-
-        $this->BoardModel->removeProject( $_SESSION['user']['id'], intval($id));
-
-        header('Location: /board');
-        exit();
-    }
-
-    //Remove task
-    public function delete_task($id, $id2){
-        session_start();
-
-        $this->loadModel("BoardModel");
-
-        $this->BoardModel->removeTask($id, $_SESSION['user']['id']);
+        $str = substr($_SERVER['REQUEST_URI'], 10);
         
-        header('Location: /board/tasks/'. $id2);
+        list($id_task, $id_project) = explode('/', $str); 
+        $this->BoardManagement->removeTask($id_task);
+        
+        header('Location: /board/'. $id_project);
         exit();
+
     }
 
-    
+    public function deleteProject() {
 
-}
+        session_start();
 
-function EmptyCheck(array $array, string $empty){
-
-    $check = true;
-
-    //Check Empty
-    foreach ($array as $key => $value) {
-        if($value == NULL){
-            $_SESSION['Flash']['ERROR'][] = 'Empty '. $empty. ' ' . $key;
-            $check = false;
+        if(!$_SESSION['user']['id']){
+            header('Location: /');
+            exit();
         }
+
+        $id_project = substr($_SERVER['REQUEST_URI'], 10);
+        $this->loadModel("BoardManagement");
+
+        $this->BoardManagement->remove($id_project);
+
+        header('Location: /home');
+        exit();
+
     }
 
-    return $check;
+    public function getFolder() {
+        return;
+    }
 }
