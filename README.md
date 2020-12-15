@@ -13,7 +13,7 @@ apt-get install php
 apt-get install php-sqlite3
 ```
 
-## Launch - LINUX
+## Launch - LINUX|WINDOWS
 
 ```
 php -S {IP}:{PORT} -t public/
